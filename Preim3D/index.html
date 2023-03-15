@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HFGI</title>
+    <meta name="author" content="Tengfei Wang">
+    <meta name="description" content="Project page of HFGI paper, 2021">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="eccv_logo.png">
+    <!-- Format -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="../format/app.css">
+    <link rel="stylesheet" href="../format/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script src="../format/app.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+               High-Fidelity GAN Inversion for Image Attribute Editing  <br /> 
+         
+<!--                 <small>
+                    
+                </small> -->
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://tengfei-wang.github.io/" >
+                         Tengfei Wang
+                        </a>
+                        <br /> HKUST
+                        <br /> &nbsp
+                    </li>
+
+                    <li>
+                        <a href="https://yzhang2016.github.io/yongnorriszhang.github.io/">
+                            Yong Zhang
+                      </a>
+                        <br />Tencent AI Lab
+                      <br /> &nbsp
+                    </li>
+
+                    <li>
+                        <a href="https://sites.google.com/site/yanbofan0124/">
+                            Yanbo Fan
+                      </a>
+                        <br />Tencent AI Lab
+                      <br /> &nbsp
+                    </li>
+              
+                    <li>
+                        <a href="https://juew.org/">
+                           Jue Wang
+                        </a>
+                        <br />Tencent AI Lab
+                      <br /> &nbsp
+                    </li>
+                  
+                    <li>
+                        <a href="https://cqf.io/">
+                           Qifeng Chen
+                        </a>
+                        <br /> HKUST 
+                        <br /> &nbsp
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- ##### Elements #####-->
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2109.06590">
+                            <img src="./paper.jpg" height="100px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+
+                            <a href="https://www.youtube.com/watch?v=yfF9QdIsbvU">
+                            <img src="../images/youtube_icon.jpg" height="100px"><br>
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Tengfei-Wang/HFGI">
+                            <img src="../images/github_icon.jpg" height="100px"><br>
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="http://colab.research.google.com/github/Tengfei-Wang/HFGI/blob/main/HFGI_playground.ipynb">
+                            <img src="../images/colab_icon.jpg" height="100px"><br>
+                                <h4><strong>Colab</strong></h4>
+                            </a>
+                        </li>
+ 
+ 
+                        <li>
+                            <a href="https://github.com/Tengfei-Wang/Tengfei-Wang.github.io/blob/master/HFGI/supp.pdf">
+                            <img src="../images/slide_icon.jpg" height="100px"><br>
+                                <h4><strong>Supp</strong></h4>
+                            </a>
+                        </li>                     
+                      
+                      
+                    </ul>
+                </div>
+        </div>
+
+
+        <!-- ##### Abstract #####-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+<!--                 It seems that arxiv fails to properly compile the pdf file, so I put the pdf file in the repo as a remedy:( -->
+              
+                Want to play with your photos without cloning the code? Try our <a href="https://replicate.com/tengfei-wang/hfgi"> ONLINE DEMO </a> for fun!
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+               We present a novel high-fidelity generative adversarial network (GAN) inversion framework that enables attribute editing with
+                  image-specific details well-preserved (e.g., background, appearance, and illumination). We first analyze the challenges of
+                  high-fidelity GAN inversion from the perspective of lossy data compression.  With a low bit-rate latent code, previous works
+                  have difficulties in preserving high-fidelity details in reconstructed and edited images. Increasing the size of a latent 
+                  code can improve the accuracy of GAN inversion but at the cost of inferior editability. To improve image fidelity without 
+                  compromising editability, we propose a distortion consultation approach that employs a distortion map as a reference for  
+                  high-fidelity reconstruction. In the distortion consultation inversion (DCI), the distortion map is first projected to a 
+                  high-rate latent map, which then complements the basic low-rate latent code with more details via consultation fusion. 
+                  To achieve high-fidelity editing, we propose an adaptive distortion alignment (ADA) module with a self-supervised training scheme,
+                  which bridges the gap between the edited and inversion images. Extensive experiments in the face and car domains show a clear
+                  improvement in both inversion and editing quality. 
+                </p>
+            </div>
+        </div>
+
+ 
+
+        <!-- ##### Results #####-->
+   
+     <div class="row">     
+       
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on High-Fidelity Image Editing
+          </h3>   
+           <br />
+    <p class="text-justify">
+        Original image (left) and edited image (right).     
+    </p>  
+          
+       
+    </div>     
+
+    <table width="70%" style="margin: 15pt auto; text-align: center;">      
+      <tr>
+          <td>
+            <img src="./image_editing/1.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/1.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/2.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/2.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>       
+      </tr>      
+      
+      <tr>
+           <td>
+            <img src="./image_editing/7.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/7.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>   
+        
+          <td>
+            <img src="./image_editing/13.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/13.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>        
+      </tr>    
+      
+      <tr>
+          <td>
+            <img src="./image_editing/4.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/4.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/5.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/5.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+        
+      </tr>
+
+       <tr>
+          <td>
+            <img src="./image_editing/6.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/6.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>       
+          <td>
+            <img src="./image_editing/8.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/8.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>            
+        
+      </tr>    
+             <tr>
+         <td>
+            <img src="./image_editing/12.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/12.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>            
+        
+              
+          <td>
+            <img src="./image_editing/11.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/11.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>       
+
+      </tr>     
+            <tr>
+          <td>
+            <img src="./image_editing/9.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/9.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/10.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/10.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+      </tr>
+      
+      </tr>
+            <tr>
+          <td>
+            <img src="./image_editing/3.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/3.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/15.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/15.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>
+      </tr>     
+       </tr>
+            <tr>
+          <td>
+            <img src="./image_editing/16.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/16.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>           
+              
+          <td>
+            <img src="./image_editing/14.jpg" alt="original image"  width="220" />
+          </td>
+        
+          <td>
+            <img src="./image_editing/14.gif" alt=" Your browser does not support GIF"  width="220" />
+          </td>             
+      </tr>            
+    </table>          
+      </div>
+              
+<!--          <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    More Results 
+                </h3>   
+  
+              </br>  
+
+             <div class="text-center">
+                  <div style="position:relative;padding-top:56.25%;">
+                    <iframe width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </br>  
+                </div>
+              </div> 
+           
+          </div>
+        </div>  -->
+
+
+    <div class="row">      
+     <div class="col-md-8 col-md-offset-2">
+          <h3>
+              Results on High-Fidelity Video Editing (+ Smile)
+          </h3>   
+    </div>   
+      
+    <table width="90%" style="margin: 15pt auto; text-align: center;">      
+      <tr>
+          <td>
+            <video width="800"  controls >
+                <source src="./video_editing/1.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+          </td>
+      </tr>     
+
+            <tr>
+          <td>
+            <video width="800"  controls >
+                <source src="./video_editing/2.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+          </td>
+      </tr>  
+    </table>          
+      </div>
+          
+
+
+        <!-- ##### Approach #####-->
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+              <h3>
+                Approach 
+              </h3>
+              <p class="text-justify">
+              Overview of our high-fidelity image inversion and editing framework. The basic 
+              encoder E<sub>0</sub> infers a low-rate latent code W corresponding to a low-fidelity reconstruction
+                image  hat{X}<sub>o</sub>. The distortion map contains the lost high-frequency image-specific 
+                details to improve the reconstruction fidelity. The red dotted boxes indicate the editing behaviour
+                with certain semantic direction.  To achieve high-fidelity image editing, we propose the distortion 
+                consultation branch to facilitate the generation. In the distortion consultation, &Delta;
+                is first aligned with the low-fidelity edited image  by ADA and then embedded to a high-rate 
+                latent map C via the consultation encoder  E<sub>c</sub>. Latent code W and latent map C are combined 
+                via the consultation fusion (see details in the right part) across layers of G<sub>0</sub> to generate
+                the final edited image.
+              </p>
+            <img src="./method.jpg" class="img-responsive" alt="method" class="center"><br>
+
+          </div>
+        </div>
+    
+    
+         <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    More Results 
+                </h3>   
+            
+          <img src="./real_edit.jpg" class="img-responsive" alt="method" class="center"><br>
+           
+          </div>
+        </div>     
+    
+    
+        <!-- ##### BibTex #####-->
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+ 
+                <div class="row align-items-center">
+                    <div class="col py-3">
+                        <pre class="border">             
+@inproceedings{wang2021HFGI,
+  title={High-Fidelity GAN Inversion for Image Attribute Editing},
+  author={Wang, Tengfei and Zhang, Yong and Fan, Yanbo and Wang, Jue and Chen, Qifeng},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2022}
+}
+</pre>
+                    </div>
+                </div>
+              
+    
+          </div>
+          
+        </div>
+
+    </div>
+</body>
+</html>
