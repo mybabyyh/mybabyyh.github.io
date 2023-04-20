@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Preim3D</title>
-    <meta name="author" content="Tengfei Wang">
-    <meta name="description" content="Project page of HFGI paper, 2021">
+    <meta name="author" content="Jianhui Li">
+    <meta name="description" content="Project page of PREIM3D paper, 2023">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="eccv_logo.png">
+<!--     <link rel="icon" type="image/png" href="eccv_logo.png"> -->
     <!-- Format -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -43,6 +43,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
+                  We study the 3D-aware image attribute editing problem in this paper, which has wide applications in practice. Recent methods solved the problem by training a shared encoder to map images into a 3D generator's latent space or by per-image latent code optimization and then edited images in the latent space. Despite their promising results near the input view, they still suffer from the 3D inconsistency of produced images at large camera poses and imprecise image attribute editing, like affecting unspecified attributes during editing. For more efficient image inversion, we train a shared encoder for all images. To alleviate 3D inconsistency at large camera poses, we propose two novel methods, an alternating training scheme and a multi-view identity loss, to maintain 3D consistency and subject identity. As for imprecise image editing, we attribute the problem to the gap between the latent space of real images and that of generated images. We compare the latent space and inversion manifold of GAN models and demonstrate that editing in the inversion manifold can achieve better results in both quantitative and qualitative evaluations. Extensive experiments show that our method produces more 3D consistent images and achieves more precise image editing than previous work. Source code and pretrained models can be found on our project page: https://mybabyyh.github.io/Preim3D/
                 </p>
             </div>
         </div>
@@ -79,7 +80,13 @@
                 <div class="row align-items-center">
                     <div class="col py-3">
                         <pre class="border">             
-
+@inproceedings{li2023PREIM3D,
+  title={PREIM3D: 3D Consistent Precise Image Attribute Editing from a Single Image},
+  author={Jianhui Li,Jianmin Li,Haoji Zhang,Shilong Liu,Zhengyi Wang,Zihao
+  Xiao,Kaiwen Zheng,Jun Zhu},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2023}
+}
 </pre>
                     </div>
                 </div>
